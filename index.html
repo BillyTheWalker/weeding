@@ -11,14 +11,14 @@
       content="Ви запрошені на весілля до Володимира та Христини."
     />
 
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="public/style.css" />
   </head>
 
   <body>
     <main class="page">
       <div class="frame">
         <header class="hero" id="top" aria-label="Wedding invitation header">
-          <p class="kicker">Wedding Invitation</p>
+          <p class="kicker">Запрошення на весілля</p>
 
           <h1 class="names">
             <span class="names__primary">Володимир</span>
@@ -32,119 +32,155 @@
 
           <p class="date-place">
             <span class="date-place__line"
-              ><time datetime="2026-06-20">Saturday, June 20, 2026</time></span
+              ><time datetime="2026-06-20">26/04/2026</time></span
             >
-            <span class="date-place__dot" aria-hidden="true">•</span>
-            <span class="date-place__line">Lviv, Ukraine</span>
+<!--            <span class="date-place__dot" aria-hidden="true">•</span>-->
+<!--            <span class="date-place__line">"Прованс парк" Почаїв</span>-->
           </p>
 
-          <nav class="hero-actions" aria-label="Primary">
-            <a class="button" href="#details">See Details</a>
-            <a class="button button--ghost" href="#rsvp">RSVP</a>
-          </nav>
+          <div data-wedding-date="2026-26-04T15:00:00" class="count">
+            <p>
+              Чекаємо на вас
+            </p>
+          <div data-wedding-date="2026-04-04T15:00:00" class="countdown" id="countdown" aria-hidden="false">
+            <span class="countdown-item"><strong id="days">0</strong><small>днів</small></span>
+            <span class="countdown-item"><strong id="hours">0</strong><small>год</small></span>
+            <span class="countdown-item"><strong id="minutes">0</strong><small>хв</small></span>
+            <span class="countdown-item"><strong id="seconds">0</strong><small>сек</small></span>
+          </div>
+          </div>
         </header>
 
         <section class="section" id="details" aria-label="Event details">
-          <h2 class="section__title">Details</h2>
+          <div class="bg-white">
+          <h2 class="section__title">Локація</h2>
           <p class="section__lead">
-            Join us for a day filled with love, laughter, and dancing.
+            Прованс Парк, Почаїв<br />
           </p>
+            <a class="location-action" href="https://maps.app.goo.gl/WpeH679YjyRHWaUU7">Дивитися на мапі
+              <svg xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Right arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <title>Right arrow</title>
+                <path d="M5 12h12" />
+                <path d="M13 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+
+
+
+          <h2  class="section__title bg-white">Таймінг</h2>
 
           <div class="grid">
-            <article class="card" aria-label="Ceremony details">
-              <h3 class="card__title">Ceremony</h3>
+            <article class="card bg-white" aria-label="Ceremony details">
+              <h3 class="card__title">Вінчання</h3>
               <p class="card__text">
-                <strong>Time:</strong> 14:30<br />
-                <strong>Location:</strong> St. Example Cathedral<br />
-                <span class="muted">123 Example St, Lviv</span>
+                <strong>Час:</strong> 13:00<br />
+                <strong>Локація:</strong> с.Лосятин<br />
+                <span>Православна Церква України св.Архістратига Михаїла</span>
               </p>
               <p class="card__actions">
                 <a
                   class="link"
-                  href="https://maps.google.com/?q=St.%20Example%20Cathedral%20Lviv"
+                  href="https://maps.app.goo.gl/K7dVicCp1YRjH6iA9"
                   target="_blank"
                   rel="noreferrer"
-                  >Open in Google Maps</a
+                  >Дивитися на карті</a
                 >
               </p>
             </article>
 
-            <article class="card" aria-label="Reception details">
-              <h3 class="card__title">Reception</h3>
+            <article class="card bg-white" aria-label="Reception details">
+              <h3 class="card__title">Ресторан</h3>
               <p class="card__text">
-                <strong>Time:</strong> 17:00<br />
-                <strong>Location:</strong> The White Hall<br />
-                <span class="muted">45 Celebration Ave, Lviv</span>
+                <strong>Час:</strong> 15:00<br />
+                <strong>Локація:</strong>Почаїв<br />
+                <span class="muted">"Прованс парк"</span>
               </p>
               <p class="card__actions">
                 <a
                   class="link"
-                  href="https://maps.google.com/?q=The%20White%20Hall%20Lviv"
+                  href="https://maps.app.goo.gl/WpeH679YjyRHWaUU7"
                   target="_blank"
                   rel="noreferrer"
-                  >Open in Google Maps</a
+                  >
+                  Дивитися на карті
+
+                </a
                 >
               </p>
             </article>
 
-            <article class="card" aria-label="Dress code">
-              <h3 class="card__title">Dress Code</h3>
-              <p class="card__text">
-                Classic black & white (optional).<br />
-                <span class="muted">Please avoid bright neon colors.</span>
+            <article class="card bg-white" aria-label="Dress code">
+              <h3 class="card__title text-center">Дрес Код</h3>
+              <p class="card__text dress">
+
+                Ми будемо дуже вдячні, якщо ви підтримаєте у своїх вбраннях кольорову гаму нашого свята
+
               </p>
+
+              <!-- pase 5 photos width from public folder ! -->
+                <div class="dress-code
+                ">
+                  <img src="public/width_623.jpeg" alt="Dress code inspiration 1" />
+                  <img src="public/width_800.jpeg" alt="Dress code inspiration 2" />
+                  <img src="public/width_800.webp" alt="Dress code inspiration 3" />
+                  <img src="public/width_800%20(1).webp" alt="Dress code inspiration 4" />
+                  <img src="public/width_800%20(2).webp" alt="Dress code inspiration 5" />
+                </div>
             </article>
 
-            <article class="card" aria-label="Gifts note">
-              <h3 class="card__title">Gifts</h3>
-              <p class="card__text">
-                Your presence is the best gift.<br />
-                <span class="muted"
-                  >If you’d like, a small contribution to our honeymoon is
-                  appreciated.</span
-                >
+            <article class="card bg-white" aria-label="Gifts note">
+              <h3 class="card__title text-center">Прохання</h3>
+              <p class="card__text text-center gifts-card">
+                Просимо вас не дарувати нам квіти, ми не встигнемо насолодитися їх красою.
+
+                Приємним компліментом для нас буде, якщо ви замість квітів вирішите подарувати нам пляшку алкогольного напою для нашої колекції, яку ми відкриємо на найближчому нашому сумісному святі.
+
+                Якщо ви хочете подарувати нам цінний та потрібний подарунок, ми будемо дуже вдячні за вклад у бюджет нашої молодої сім’ї.
               </p>
             </article>
           </div>
         </section>
 
-        <section class="section" id="schedule" aria-label="Schedule">
-          <h2 class="section__title">Schedule</h2>
+<!--        <section class="section" id="schedule" aria-label="Schedule">-->
+<!--          <h2 class="section__title">Schedule</h2>-->
 
-          <ol class="timeline">
-            <li class="timeline__item">
-              <span class="timeline__time">14:30</span>
-              <span class="timeline__dot" aria-hidden="true"></span>
-              <span class="timeline__content">Ceremony</span>
-            </li>
-            <li class="timeline__item">
-              <span class="timeline__time">16:00</span>
-              <span class="timeline__dot" aria-hidden="true"></span>
-              <span class="timeline__content">Photos & Congratulations</span>
-            </li>
-            <li class="timeline__item">
-              <span class="timeline__time">17:00</span>
-              <span class="timeline__dot" aria-hidden="true"></span>
-              <span class="timeline__content">Reception & Dinner</span>
-            </li>
-            <li class="timeline__item">
-              <span class="timeline__time">20:00</span>
-              <span class="timeline__dot" aria-hidden="true"></span>
-              <span class="timeline__content">Dancing</span>
-            </li>
-          </ol>
-        </section>
+<!--          <ol class="timeline">-->
+<!--            <li class="timeline__item">-->
+<!--              <span class="timeline__time">14:30</span>-->
+<!--              <span class="timeline__dot" aria-hidden="true"></span>-->
+<!--              <span class="timeline__content">Ceremony</span>-->
+<!--            </li>-->
+<!--            <li class="timeline__item">-->
+<!--              <span class="timeline__time">16:00</span>-->
+<!--              <span class="timeline__dot" aria-hidden="true"></span>-->
+<!--              <span class="timeline__content">Photos & Congratulations</span>-->
+<!--            </li>-->
+<!--            <li class="timeline__item">-->
+<!--              <span class="timeline__time">17:00</span>-->
+<!--              <span class="timeline__dot" aria-hidden="true"></span>-->
+<!--              <span class="timeline__content">Reception & Dinner</span>-->
+<!--            </li>-->
+<!--            <li class="timeline__item">-->
+<!--              <span class="timeline__time">20:00</span>-->
+<!--              <span class="timeline__dot" aria-hidden="true"></span>-->
+<!--              <span class="timeline__content">Dancing</span>-->
+<!--            </li>-->
+<!--          </ol>-->
+<!--        </section>-->
 
-        <section class="section" id="rsvp" aria-label="RSVP form">
-          <h2 class="section__title">RSVP</h2>
+        <section class="section bg-white" id="rsvp" aria-label="RSVP form">
+          <h2 class="section__title">Анкета Гостя</h2>
           <p class="section__lead">
-            Please reply by <strong>May 20, 2026</strong>.
+
+            Будь ласка, надайте відповідь про присутність до <br> <strong>26.03.2026 року</strong>
+
           </p>
 
-          <form class="form" id="rsvp-form">
+          <form class="form" data-google-form-url="https://docs.google.com/forms/d/e/1FAIpQLSdQhQuVSAyYh9MWRrjhkvnRrnu641X1EryyOf922uDp6GfCyw/viewform?usp=header" id="rsvp-form">
             <div class="form__row">
               <label class="label">
-                Full name
+                Ваше ім'я та прізвище
                 <input
                   class="input"
                   name="name"
@@ -154,40 +190,55 @@
                   required
                 />
               </label>
-
+            </div>
+            <div class="form__row">
               <label class="label">
-                Email (optional)
+                Ваш номер телефону
                 <input
                   class="input"
-                  name="email"
-                  type="email"
-                  autocomplete="email"
-                  placeholder="you@example.com"
+                  name="number"
+                  type="tel"
+                  autocomplete="tel"
+                  placeholder="+380XXXXXXXXX"
+                  required
                 />
+
               </label>
             </div>
 
             <div class="form__row">
               <label class="label">
-                Attendance
+                Чи плануєте бути на весіллі?
                 <select class="input" name="attendance" required>
                   <option value="" selected disabled>Select one</option>
-                  <option value="yes">Joyfully accept</option>
-                  <option value="no">Regretfully decline</option>
+                  <option value="yes">Буду</option>
+                  <option value="no">Не буду</option>
                 </select>
               </label>
 
               <label class="label">
-                Guests
-                <select class="input" name="guests" required>
-                  <option value="1" selected>1</option>
-                  <option value="2">2</option>
+                Будете з парою?
+                <select class="input" name="partner" required>
+                  <option value="" selected disabled>Select one</option>
+                  <option value="alone">Сам(а)</option>
+                  <option value="with_partner">З партнером</option>
                 </select>
+              </label>
+
+              <label class="label">
+                Чи потрібне вам дитяче місце?(введіть кількість місць)
+                <input
+                  class="input"
+                  name="children_seats"
+                  type="number"
+                  min="0"
+                  placeholder="0"
+                />
               </label>
             </div>
 
             <label class="label">
-              Note (optional)
+              Повідомлення (опціонально)
               <textarea
                 class="input textarea"
                 name="note"
@@ -197,29 +248,27 @@
             </label>
 
             <div class="form__actions">
-              <button class="button" type="submit">Send RSVP</button>
+              <button class="button" type="submit">Відправити</button>
               <p class="form__hint" id="rsvp-hint" aria-live="polite"></p>
             </div>
-
-            <p class="fineprint">
-              This starter template doesn’t send emails yet. On submit, it will
-              copy your RSVP text to the clipboard so you can paste it into a
-              message.
-            </p>
           </form>
+          <div id="thank-you-section" class="bg-white">
+                <h3 class="thank-you-title text-center">Дякуємо за вашу відповідь!</h3>
+                <p class="thank-you-message text-center">Ми раді, що ви з нами в цей особливий день. Чекаємо на вас з нетерпінням!</p>
+          </div>
         </section>
 
         <footer class="footer" aria-label="Footer">
           <div class="divider" role="presentation"></div>
           <p class="footer__text">
-            With love,<br />
-            Vladimir & Khrystyna
+            З любов'ю ,<br />
+            Володимир & Христина
           </p>
-          <a class="to-top link" href="#top">Back to top</a>
+          <a class="to-top link" href="#top">Назад на верх</a>
         </footer>
       </div>
     </main>
 
-    <script type="module" src="/weeding/src/main.js"></script>
+    <script type="module" src="/src/main.js"></script>
   </body>
 </html>

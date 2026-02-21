@@ -33,7 +33,7 @@ body {
   font-family: var(--sans);
   letter-spacing: 0.2px;
 
-  background-image: url("/IMG_3427.JPG");
+  background-image: url("us.jpg");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -57,8 +57,8 @@ body {
 .frame {
   width: min(var(--max), 100%);
   background: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--hairline);
   border-radius: var(--radius);
   padding: clamp(18px, 3.5vw, 44px);
@@ -94,8 +94,7 @@ body {
   margin: 0;
   font-family: var(--serif);
   font-weight: 600;
-  line-height: 1.02;
-  font-size: clamp(40px, 5.6vw, 72px);
+    font-size: clamp(40px, 5.6vw, 72px);
 }
 
 .ampersand {
@@ -110,6 +109,10 @@ body {
   font-family: var(--serif);
   font-size: clamp(16px, 1.6vw, 20px);
   color: var(--muted);
+  background: #ffffff9c;
+  padding: 14px;
+  border: 0px solid;
+  border-radius: 12px;
 }
 
 .divider {
@@ -124,8 +127,33 @@ body {
   color: var(--ink);
   font-size: 14px;
   letter-spacing: 0.08em;
-  text-transform: uppercase;
+  background: #ffffff9c;
+  padding: 14px;
+  border: 0px solid;
+  border-radius: 12px;
 }
+
+
+
+
+.location-action{
+  color: white;
+  background: black;
+  padding: 8px 14px;
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 15px;
+  border-radius: 13px;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.location-action svg{
+  vertical-align: middle;
+  font-size: 12px;
+}
+
 
 .date-place__dot {
   margin: 0 10px;
@@ -191,10 +219,12 @@ body {
   margin: 0;
   color: var(--ink);
   line-height: 1.7;
+  font-size: 14px;
 }
 
 .card__actions {
   margin: 10px 0 0;
+  font-size: 14px;
 }
 
 .muted {
@@ -250,6 +280,9 @@ body {
   border: 1px solid var(--hairline);
   border-radius: 16px;
   padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .form__row {
@@ -302,6 +335,11 @@ body {
   align-items: center;
   gap: 12px;
   flex-wrap: wrap;
+  justify-content: center;
+}
+
+.count{
+  margin-top:24px;
 }
 
 .form__hint {
@@ -371,4 +409,60 @@ body {
   margin-top: 10px;
   font-size: 13px;
   color: var(--muted);
+}
+
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  line-height: 1.2;
+}
+
+
+
+.bg-white{
+  margin-bottom: 24px;
+  padding: 15px 0px;
+  padding: 14px;
+  border: 0px solid;
+  border-radius: 12px;
+  background: #ffffff9c;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.dress-code{
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.dress-code img{
+  flex: 1 1 20%;
+  max-width: 56px;
+  max-height: 56px;
+  object-fit: cover;
+  border-radius: 50px;
+}
+
+.gifts-card{
+  font-size: 12px;
+  font-style: italic;
+}
+
+.section__lead{
+  font-size: 14px;
+}
+
+#thank-you-section{
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.thank-you-title{
+  text-align: center;
 }
