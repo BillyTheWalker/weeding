@@ -27,17 +27,14 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-
   color: var(--ink);
   background: var(--bg);
   font-family: var(--sans);
   letter-spacing: 0.2px;
-
-  background-image: url("us.jpg");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
-  background-attachment: scroll;
+
 }
 
 @media(max-width: 720px) {
@@ -45,26 +42,26 @@ body {
     margin: 0;
     min-height: 100vh;
     color: var(--ink);
-    background-color: var(--bg); /* Основний колір фону */
+    background-color: var(--bg);
     font-family: var(--sans);
     letter-spacing: 0.2px;
+
   }
 
   body::before {
     content: "";
-    position: fixed; /* Фіксуємо саме цей шар */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Відправляємо на задній план */
+    z-index: -1;
 
     background-image: url("us.jpg");
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
 
-    /* Важливо для iOS: */
     will-change: transform;
   }
 }
