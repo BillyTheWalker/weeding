@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/webstorm-icon-logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Володічка та Тіночка</title>
+    <meta
+      name="description"
+      content="Ви запрошені на весілля до Володимира та Христини."
+    />
+
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+
+  <body>
+    <main class="page">
+      <div class="frame">
+        <header class="hero" id="top" aria-label="Wedding invitation header">
+          <p class="kicker">Wedding Invitation</p>
+
+          <h1 class="names">
+            <span class="names__primary">Володимир</span>
+            <span class="ampersand" aria-hidden="true">&</span>
+            <span class="names__primary">Христина</span>
+          </h1>
+
+          <p class="subtitle">Запрошуємо вас розділити з нами радість особливої для нас події та стати частиною нашої історії</p>
+
+          <div class="divider" role="presentation"></div>
+
+          <p class="date-place">
+            <span class="date-place__line"
+              ><time datetime="2026-06-20">Saturday, June 20, 2026</time></span
+            >
+            <span class="date-place__dot" aria-hidden="true">•</span>
+            <span class="date-place__line">Lviv, Ukraine</span>
+          </p>
+
+          <nav class="hero-actions" aria-label="Primary">
+            <a class="button" href="#details">See Details</a>
+            <a class="button button--ghost" href="#rsvp">RSVP</a>
+          </nav>
+        </header>
+
+        <section class="section" id="details" aria-label="Event details">
+          <h2 class="section__title">Details</h2>
+          <p class="section__lead">
+            Join us for a day filled with love, laughter, and dancing.
+          </p>
+
+          <div class="grid">
+            <article class="card" aria-label="Ceremony details">
+              <h3 class="card__title">Ceremony</h3>
+              <p class="card__text">
+                <strong>Time:</strong> 14:30<br />
+                <strong>Location:</strong> St. Example Cathedral<br />
+                <span class="muted">123 Example St, Lviv</span>
+              </p>
+              <p class="card__actions">
+                <a
+                  class="link"
+                  href="https://maps.google.com/?q=St.%20Example%20Cathedral%20Lviv"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Open in Google Maps</a
+                >
+              </p>
+            </article>
+
+            <article class="card" aria-label="Reception details">
+              <h3 class="card__title">Reception</h3>
+              <p class="card__text">
+                <strong>Time:</strong> 17:00<br />
+                <strong>Location:</strong> The White Hall<br />
+                <span class="muted">45 Celebration Ave, Lviv</span>
+              </p>
+              <p class="card__actions">
+                <a
+                  class="link"
+                  href="https://maps.google.com/?q=The%20White%20Hall%20Lviv"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Open in Google Maps</a
+                >
+              </p>
+            </article>
+
+            <article class="card" aria-label="Dress code">
+              <h3 class="card__title">Dress Code</h3>
+              <p class="card__text">
+                Classic black & white (optional).<br />
+                <span class="muted">Please avoid bright neon colors.</span>
+              </p>
+            </article>
+
+            <article class="card" aria-label="Gifts note">
+              <h3 class="card__title">Gifts</h3>
+              <p class="card__text">
+                Your presence is the best gift.<br />
+                <span class="muted"
+                  >If you’d like, a small contribution to our honeymoon is
+                  appreciated.</span
+                >
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="schedule" aria-label="Schedule">
+          <h2 class="section__title">Schedule</h2>
+
+          <ol class="timeline">
+            <li class="timeline__item">
+              <span class="timeline__time">14:30</span>
+              <span class="timeline__dot" aria-hidden="true"></span>
+              <span class="timeline__content">Ceremony</span>
+            </li>
+            <li class="timeline__item">
+              <span class="timeline__time">16:00</span>
+              <span class="timeline__dot" aria-hidden="true"></span>
+              <span class="timeline__content">Photos & Congratulations</span>
+            </li>
+            <li class="timeline__item">
+              <span class="timeline__time">17:00</span>
+              <span class="timeline__dot" aria-hidden="true"></span>
+              <span class="timeline__content">Reception & Dinner</span>
+            </li>
+            <li class="timeline__item">
+              <span class="timeline__time">20:00</span>
+              <span class="timeline__dot" aria-hidden="true"></span>
+              <span class="timeline__content">Dancing</span>
+            </li>
+          </ol>
+        </section>
+
+        <section class="section" id="rsvp" aria-label="RSVP form">
+          <h2 class="section__title">RSVP</h2>
+          <p class="section__lead">
+            Please reply by <strong>May 20, 2026</strong>.
+          </p>
+
+          <form class="form" id="rsvp-form">
+            <div class="form__row">
+              <label class="label">
+                Full name
+                <input
+                  class="input"
+                  name="name"
+                  type="text"
+                  autocomplete="name"
+                  placeholder="Your name"
+                  required
+                />
+              </label>
+
+              <label class="label">
+                Email (optional)
+                <input
+                  class="input"
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  placeholder="you@example.com"
+                />
+              </label>
+            </div>
+
+            <div class="form__row">
+              <label class="label">
+                Attendance
+                <select class="input" name="attendance" required>
+                  <option value="" selected disabled>Select one</option>
+                  <option value="yes">Joyfully accept</option>
+                  <option value="no">Regretfully decline</option>
+                </select>
+              </label>
+
+              <label class="label">
+                Guests
+                <select class="input" name="guests" required>
+                  <option value="1" selected>1</option>
+                  <option value="2">2</option>
+                </select>
+              </label>
+            </div>
+
+            <label class="label">
+              Note (optional)
+              <textarea
+                class="input textarea"
+                name="note"
+                rows="4"
+                placeholder="Dietary restrictions, song requests, etc."
+              ></textarea>
+            </label>
+
+            <div class="form__actions">
+              <button class="button" type="submit">Send RSVP</button>
+              <p class="form__hint" id="rsvp-hint" aria-live="polite"></p>
+            </div>
+
+            <p class="fineprint">
+              This starter template doesn’t send emails yet. On submit, it will
+              copy your RSVP text to the clipboard so you can paste it into a
+              message.
+            </p>
+          </form>
+        </section>
+
+        <footer class="footer" aria-label="Footer">
+          <div class="divider" role="presentation"></div>
+          <p class="footer__text">
+            With love,<br />
+            Vladimir & Khrystyna
+          </p>
+          <a class="to-top link" href="#top">Back to top</a>
+        </footer>
+      </div>
+    </main>
+
+    <script type="module" src="/weeding/src/main.js"></script>
+  </body>
+</html>
