@@ -116,6 +116,7 @@ form?.addEventListener('submit', async (e) => {
     name: fd.get('name') ?? '',
     attendance: fd.get('attendance') ?? '',
     number: fd.get('number') ?? '',
+    transfer: fd.get('transfer') ?? '',
     guests: fd.get('guests') ?? '',
     note: fd.get('note') ?? ''
   };
@@ -130,6 +131,7 @@ form?.addEventListener('submit', async (e) => {
     attendance: 'entry.1118800612',
     number: 'entry.923967384',
     note: 'entry.2120441450',
+    transfer: 'entry.1159858936',
     partner: 'entry.768318083',
     children_seats: 'entry.772500442'
   };
@@ -250,4 +252,3 @@ function parseFlexibleDate(str){
 
 initCountdown()
 
-console.log('check')

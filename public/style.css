@@ -235,6 +235,9 @@ body {
   font-family: var(--serif);
   font-size: 18px;
 }
+.card__text.dress{
+  text-align: center;
+}
 
 .card__text {
   margin: 0;
@@ -457,7 +460,7 @@ h1, h2, h3, h4, h5, h6, p {
   display: flex;
   gap: 12px;
   justify-content: center;
-  margin-top: 12px;
+  margin-top: 24px;
   flex-wrap: wrap;
 }
 
@@ -471,8 +474,8 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 .dress-code img{
-  width: 44px;
-  height: 44px;
+  width: 67px;
+  height: 67px;
   object-fit: cover;
   border-radius: 74px;
 }
@@ -500,4 +503,5 @@ h1, h2, h3, h4, h5, h6, p {
 .caption{
   font-size: 11px;
   text-align: center;
+  font-weight: 500;
 }
