@@ -126,6 +126,20 @@ form?.addEventListener('submit', async (e) => {
   // Google mapping: replace these with real entry IDs from your prefilled link
   const googleUrl = form.dataset.googleFormUrl;
   console.log('Google Form URL from data attribute:', googleUrl);
+  fetch(googleUrl.replace(/\/viewform.*$/, '/formResponse'), {
+    method: "POST",
+    mode: "no-cors",
+    headers: { "Content-Type": "application/x-www-form-urlencoded", },
+    body: new URLSearchParams({
+      'entry.1562269776': fd.get('name'),
+      'entry.1118800612': fd.get('attendance'),
+      'entry.923967384': fd.get('number'),
+      'entry.2120441450': fd.get('note'),
+      'entry.1159858936': fd.get('transfer'),
+      'entry.768318083': fd.get('partner'),
+      'entry.772500442': fd.get('children_seats')
+    })
+  });
   const googleMapping = {
     name: 'entry.1562269776',
     attendance: 'entry.1118800612',
@@ -137,14 +151,14 @@ form?.addEventListener('submit', async (e) => {
   };
 
   try {
-    if (googleUrl) {
-      const ok = await postToGoogleForm(googleUrl, googleMapping, fd);
-      if (ok) hint.textContent = 'Responses submitted to Google Form.';
-      else hint.textContent = 'Google Form not submitted (check popup or mapping).';
-    }
-
-    await copyToClipboard(text);
-    hint.textContent = (hint.textContent ? hint.textContent + ' ' : '') + 'Copied RSVP text to clipboard — paste it into a message.';
+    // if (googleUrl) {
+    //   const ok = await postToGoogleForm(googleUrl, googleMapping, fd);
+    //   if (ok) hint.textContent = 'Responses submitted to Google Form.';
+    //   else hint.textContent = 'Google Form not submitted (check popup or mapping).';
+    // }
+    //
+    // await copyToClipboard(text);
+    // hint.textContent = (hint.textContent ? hint.textContent + ' ' : '') + 'Copied RSVP text to clipboard — paste it into a message.';
     form.reset();
     form.remove()
     let thankYouSection = document.getElementById('thank-you-section');
