@@ -108,20 +108,8 @@ async function postToGoogleForm(googleUrl, mapping, formData) {
 // --- Form submit handler ---
 form?.addEventListener('submit', async (e) => {
   e.preventDefault();
-  hint.textContent = '';
 
   const fd = new FormData(form);
-  // Build a small object for clipboard text
-  const dataObj = {
-    name: fd.get('name') ?? '',
-    attendance: fd.get('attendance') ?? '',
-    number: fd.get('number') ?? '',
-    transfer: fd.get('transfer') ?? '',
-    guests: fd.get('guests') ?? '',
-    note: fd.get('note') ?? ''
-  };
-
-  const text = buildRsvpText(dataObj);
 
   // Google mapping: replace these with real entry IDs from your prefilled link
   const googleUrl = form.dataset.googleFormUrl;
@@ -140,25 +128,9 @@ form?.addEventListener('submit', async (e) => {
       'entry.772500442': fd.get('children_seats')
     })
   });
-  const googleMapping = {
-    name: 'entry.1562269776',
-    attendance: 'entry.1118800612',
-    number: 'entry.923967384',
-    note: 'entry.2120441450',
-    transfer: 'entry.1159858936',
-    partner: 'entry.768318083',
-    children_seats: 'entry.772500442'
-  };
+
 
   try {
-    // if (googleUrl) {
-    //   const ok = await postToGoogleForm(googleUrl, googleMapping, fd);
-    //   if (ok) hint.textContent = 'Responses submitted to Google Form.';
-    //   else hint.textContent = 'Google Form not submitted (check popup or mapping).';
-    // }
-    //
-    // await copyToClipboard(text);
-    // hint.textContent = (hint.textContent ? hint.textContent + ' ' : '') + 'Copied RSVP text to clipboard — paste it into a message.';
     form.reset();
     form.remove()
     let thankYouSection = document.getElementById('thank-you-section');
