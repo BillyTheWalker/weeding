@@ -188,7 +188,7 @@
 
           </p>
 
-          <form class="form" data-google-form-url="https://docs.google.com/forms/d/e/1FAIpQLSdQhQuVSAyYh9MWRrjhkvnRrnu641X1EryyOf922uDp6GfCyw/viewform?usp=header" id="rsvp-form">
+          <form class="form" data-google-form-url="https://docs.google.com/forms/d/e/1FAIpQLSdQhQuVSAyYh9MWRrjhkvnRrnu641X1EryyOf922uDp6GfCyw/formResponse" id="rsvp-form">
             <div class="form__row">
               <label class="label">
                 Ваше ім'я та прізвище
@@ -217,45 +217,48 @@
               </label>
             </div>
 
-            <div class="form__row">
-              <label class="label">
-                Чи плануєте бути на весіллі?
-                <select class="input" name="attendance" required>
-                  <option value="" selected disabled>Виберіть</option>
-                  <option value="yes">Буду</option>
-                  <option value="no">Не буду</option>
-                </select>
-              </label>
-
-              <label class="label">
-                Ви будете власним транспортом?
-                <select class="input" name="transfer" required>
-                  <option value="" selected disabled>Виберіть</option>
-                  <option value="own">Власним</option>
-                  <option value="public">Потрібен транспорт</option>
-                </select>
-              </label>
-
-              <label class="label">
-                Будете з парою?
-                <select class="input" name="partner" required>
-                  <option value="" selected disabled>Виберіть</option>
-                  <option value="alone">Сам(а)</option>
-                  <option value="with_partner">З партнером</option>
-                </select>
-              </label>
-
-              <label class="label">
-                Чи потрібне вам дитяче місце?(введіть кількість місць)
-                <input
-                  class="input"
-                  name="children_seats"
-                  type="number"
-                  min="0"
-                  placeholder="0"
-                />
-              </label>
-            </div>
+              <div class="form__row">
+                  <label class="label">
+                      Чи плануєте бути на весіллі?
+                      <select class="input" name="attendance" required>
+                          <option value="" selected disabled>Виберіть</option>
+                          <option value="yes">Буду</option>
+                          <option value="no">Не буду</option>
+                      </select>
+                  </label>
+                  <div class="additional_info">
+                      <label class="label">
+                          Ви будете власним транспортом?
+                          <select class="input" name="transfer">
+                              <option value="" selected disabled>Виберіть</option>
+                              <option value="own">Власним</option>
+                              <option value="public">Потрібен транспорт</option>
+                          </select>
+                      </label>
+                  </div>
+                  <div class="additional_info">
+                      <label class="label">
+                          Будете з парою?
+                          <select class="input" name="partner">
+                              <option value="" selected disabled>Виберіть</option>
+                              <option value="alone">Сам(а)</option>
+                              <option value="with_partner">З партнером</option>
+                          </select>
+                      </label>
+                  </div>
+                  <div class="additional_info">
+                      <label class="label">
+                          Чи потрібне вам дитяче місце?(введіть кількість місць)
+                          <input
+                                  class="input"
+                                  name="children_seats"
+                                  type="number"
+                                  min="0"
+                                  placeholder="0"
+                          />
+                      </label>
+                  </div>
+              </div>
 
             <label class="label">
               Повідомлення (опціонально)
@@ -275,6 +278,9 @@
           <div id="thank-you-section" class="bg-white">
                 <h3 class="thank-you-title text-center">Дякуємо за вашу відповідь!</h3>
                 <p class="thank-you-message text-center">Ми раді, що ви з нами в цей особливий день. Чекаємо на вас з нетерпінням!</p>
+          </div>
+          <div id="thank-you-section-no" class="bg-white">
+                <h3 class="thank-you-title text-center">Дякуємо за вашу відповідь!</h3>
           </div>
         </section>
 

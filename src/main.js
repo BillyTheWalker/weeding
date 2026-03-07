@@ -1,109 +1,19 @@
 const form = document.querySelector("#rsvp-form");
 const hint = document.querySelector("#rsvp-hint");
+const attendanceField = form?.querySelector('[name="attendance"]');
+const additionalInfo = document.querySelectorAll(".additional_info");
 
-function buildRsvpText(data) {
-  const lines = [
-    `RSVP — ${data.name || ''}`,
-    `Attendance: ${data.attendance || ''}`,
-    `Guests: ${data.guests || ''}`,
-  ];
+function toggleAdditionalInfo() {
+  const shouldShow = attendanceField?.value === "yes";
 
-  if (data.email) lines.push(`Email: ${data.email}`);
-  if (data.note) lines.push(`Note: ${data.note}`);
-
-  return lines.join("\n");
-}
-
-async function copyToClipboard(text) {
-  try {
-    await navigator.clipboard.writeText(text);
-  } catch (e) {
-    console.warn('Clipboard write failed', e);
+  if (additionalInfo) {
+    for(const info of additionalInfo)
+      info.hidden = !shouldShow;
   }
 }
 
-// Robust submit to Google Forms: open a popup window and POST a real form to /formResponse
-async function postToGoogleForm(googleUrl, mapping, formData) {
-
-  if (!googleUrl) {
-    console.warn('No googleUrl provided');
-    return false;
-  }
-
-  // Validate mapping values look like entry.########
-  const invalid = Object.values(mapping).some(v => typeof v !== 'string' || !/^entry\.\d+$/.test(v));
-  if (invalid) {
-    console.warn('Google mapping contains invalid entry IDs. Mapping:', mapping);
-    // still allow attempt, but warn
-  }
-
-  const postUrl = googleUrl.replace(/\/viewform.*$/, '/formResponse');
-
-  // open a named popup window
-  const winName = 'gf_submit_win_' + Date.now();
-  // const popup = window.open('', winName, 'width=600,height=600');
-  // if (!popup) {
-  //   console.warn('Popup blocked by browser. Cannot submit to Google Form.');
-  //   return false;
-  // }
-
-  // Build a real form element and append hidden inputs. For fields that have multiple values (checkboxes), append multiple inputs.
-  const hiddenForm = document.createElement('form');
-  hiddenForm.style.display = 'none';
-  hiddenForm.method = 'POST';
-  hiddenForm.action = postUrl;
-  hiddenForm.target = winName;
-
-  // For debugging: collect a textual copy of payload
-  const debugPairs = [];
-
-  for (const [localName, entryName] of Object.entries(mapping)) {
-    // formData may be a FormData instance; if so, use getAll to preserve multiple values
-    let values = [];
-    if (typeof formData.getAll === 'function') {
-      values = formData.getAll(localName);
-    } else if (formData[localName] !== undefined) {
-      // object fallback
-      values = Array.isArray(formData[localName]) ? formData[localName] : [formData[localName]];
-    }
-
-    if (values.length === 0) {
-      // create an empty input so Google receives the key (optional)
-      const inp = document.createElement('input');
-      inp.type = 'hidden';
-      inp.name = entryName;
-      inp.value = '';
-      hiddenForm.appendChild(inp);
-      debugPairs.push(`${entryName}=`);
-    } else {
-      for (const v of values) {
-        const inp = document.createElement('input');
-        inp.type = 'hidden';
-        inp.name = entryName;
-        inp.value = String(v);
-        hiddenForm.appendChild(inp);
-        debugPairs.push(`${entryName}=${encodeURIComponent(String(v))}`);
-      }
-    }
-  }
-
-  // Append the form and submit
-  document.body.appendChild(hiddenForm);
-
-  // Log the POST URL and body for debugging (so you can compare with your working prefilled link)
-  console.log('Submitting to Google Forms POST URL:', postUrl);
-  console.log('POST body (approx):', debugPairs.join('&'));
-
-  try {
-    hiddenForm.submit();
-  } catch (e) {
-    console.warn('Form submit threw', e);
-    try { document.body.removeChild(hiddenForm); } catch (e) {}
-    try { popup.close(); } catch (e) {}
-    return false;
-  }
-  return true;
-}
+attendanceField?.addEventListener("change", toggleAdditionalInfo);
+toggleAdditionalInfo();
 
 // --- Form submit handler ---
 form?.addEventListener('submit', async (e) => {
@@ -114,7 +24,7 @@ form?.addEventListener('submit', async (e) => {
   // Google mapping: replace these with real entry IDs from your prefilled link
   const googleUrl = form.dataset.googleFormUrl;
   console.log('Google Form URL from data attribute:', googleUrl);
-  fetch(googleUrl.replace(/\/viewform.*$/, '/formResponse'), {
+  fetch(googleUrl, {
     method: "POST",
     mode: "no-cors",
     headers: { "Content-Type": "application/x-www-form-urlencoded", },
@@ -123,17 +33,18 @@ form?.addEventListener('submit', async (e) => {
       'entry.1118800612': fd.get('attendance'),
       'entry.923967384': fd.get('number'),
       'entry.2120441450': fd.get('note'),
-      'entry.1159858936': fd.get('transfer'),
-      'entry.768318083': fd.get('partner'),
+      'entry.1159858936': fd.get('transfer') ? fd.get('transfer') : "",
+      'entry.768318083': fd.get('partner') ? fd.get('partner') : "",
       'entry.772500442': fd.get('children_seats')
     })
   });
 
 
   try {
+    const shouldShow = (attendanceField?.value === "yes");
     form.reset();
     form.remove()
-    let thankYouSection = document.getElementById('thank-you-section');
+    let thankYouSection = shouldShow ? document.getElementById('thank-you-section') : document.getElementById('thank-you-section-no');
     if (thankYouSection) thankYouSection.style.display = 'flex';
     document.querySelector('#rsvp .section__lead').remove()
 
@@ -237,4 +148,3 @@ function parseFlexibleDate(str){
 }
 
 initCountdown()
-
